@@ -15,3 +15,20 @@ D:\y work\New folder (7)\OpticalPointOfSale-master\OpticalPointOfSale\OpticalPoi
 D:\y work\New folder (7)\OpticalPointOfSale-master\OpticalPointOfSale\OpticalPointOfSale\obj\Debug\OpticalPointOfSale.csproj.CopyComplete
 D:\y work\New folder (7)\OpticalPointOfSale-master\OpticalPointOfSale\OpticalPointOfSale\obj\Debug\OpticalPointOfSale.dll
 D:\y work\New folder (7)\OpticalPointOfSale-master\OpticalPointOfSale\OpticalPointOfSale\obj\Debug\OpticalPointOfSale.pdb
+E:\C# and ASP.Net\Optical_Shop_Management_System\OpticalPointOfSale\bin\OpticalPointOfSale.dll.config
+E:\C# and ASP.Net\Optical_Shop_Management_System\OpticalPointOfSale\bin\OpticalPointOfSale.dll
+E:\C# and ASP.Net\Optical_Shop_Management_System\OpticalPointOfSale\bin\OpticalPointOfSale.pdb
+E:\C# and ASP.Net\Optical_Shop_Management_System\OpticalPointOfSale\bin\AjaxControlToolkit.dll
+E:\C# and ASP.Net\Optical_Shop_Management_System\OpticalPointOfSale\bin\DAL.dll
+E:\C# and ASP.Net\Optical_Shop_Management_System\OpticalPointOfSale\bin\EntityFramework.dll
+E:\C# and ASP.Net\Optical_Shop_Management_System\OpticalPointOfSale\bin\EntityFramework.SqlServer.dll
+E:\C# and ASP.Net\Optical_Shop_Management_System\OpticalPointOfSale\bin\Microsoft.Web.Infrastructure.dll
+E:\C# and ASP.Net\Optical_Shop_Management_System\OpticalPointOfSale\bin\DAL.pdb
+E:\C# and ASP.Net\Optical_Shop_Management_System\OpticalPointOfSale\bin\DAL.dll.config
+E:\C# and ASP.Net\Optical_Shop_Management_System\OpticalPointOfSale\bin\EntityFramework.xml
+E:\C# and ASP.Net\Optical_Shop_Management_System\OpticalPointOfSale\bin\EntityFramework.SqlServer.xml
+E:\C# and ASP.Net\Optical_Shop_Management_System\OpticalPointOfSale\obj\Debug\OpticalPointOfSale.csprojAssemblyReference.cache
+E:\C# and ASP.Net\Optical_Shop_Management_System\OpticalPointOfSale\obj\Debug\OpticalPointOfSale.csproj.CoreCompileInputs.cache
+E:\C# and ASP.Net\Optical_Shop_Management_System\OpticalPointOfSale\obj\Debug\OpticalPointOfSale.csproj.CopyComplete
+E:\C# and ASP.Net\Optical_Shop_Management_System\OpticalPointOfSale\obj\Debug\OpticalPointOfSale.dll
+E:\C# and ASP.Net\Optical_Shop_Management_System\OpticalPointOfSale\obj\Debug\OpticalPointOfSale.pdb
