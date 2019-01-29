@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OpticalPointOfSaleModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AppSettings">
+    <Key>
+      <PropertyRef Name="AppSettingsID" />
+    </Key>
+    <Property Name="AppSettingsID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SettingKey" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="SettingValue" Type="varchar(max)" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CustomerOrders">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerID" Type="bigint" Nullable="false" />
+    <Property Name="Particularls" Type="varchar(max)" />
+    <Property Name="OrderDate" Type="datetime" Nullable="false" />
+    <Property Name="DeliveryDate" Type="datetime" />
+    <Property Name="Frame" Type="varchar" MaxLength="500" />
+    <Property Name="Lenses" Type="varchar" MaxLength="500" />
+    <Property Name="ContactLense" Type="varchar" MaxLength="500" />
+    <Property Name="Total" Type="int" />
+    <Property Name="Advance" Type="int" />
+    <Property Name="Balance" Type="int" />
+    <Property Name="Comments" Type="varchar(max)" />
+    <Property Name="RE_SPH_D" Type="varchar" MaxLength="20" />
+    <Property Name="RE_SPH_R" Type="varchar" MaxLength="20" />
+    <Property Name="RE_SPH_CL" Type="varchar" MaxLength="20" />
+    <Property Name="RE_CYL_D" Type="varchar" MaxLength="20" />
+    <Property Name="RE_CYL_R" Type="varchar" MaxLength="20" />
+    <Property Name="RE_CYL_CL" Type="varchar" MaxLength="20" />
+    <Property Name="RE_AXIS_D" Type="varchar" MaxLength="20" />
+    <Property Name="RE_AXIS_R" Type="varchar" MaxLength="20" />
+    <Property Name="RE_AXIS_CL" Type="varchar" MaxLength="20" />
+    <Property Name="RE_VA_D" Type="varchar" MaxLength="20" />
+    <Property Name="RE_VA_R" Type="varchar" MaxLength="20" />
+    <Property Name="RE_VA_CL" Type="varchar" MaxLength="20" />
+    <Property Name="LE_SPH_D" Type="varchar" MaxLength="20" />
+    <Property Name="LE_SPH_R" Type="varchar" MaxLength="20" />
+    <Property Name="LE_SPH_CL" Type="varchar" MaxLength="20" />
+    <Property Name="LE_CYL_D" Type="varchar" MaxLength="20" />
+    <Property Name="LE_CYL_R" Type="varchar" MaxLength="20" />
+    <Property Name="LE_CYL_CL" Type="varchar" MaxLength="20" />
+    <Property Name="LE_AXIS_D" Type="varchar" MaxLength="20" />
+    <Property Name="LE_AXIS_R" Type="varchar" MaxLength="20" />
+    <Property Name="LE_AXIS_CL" Type="varchar" MaxLength="20" />
+    <Property Name="LE_VA_D" Type="varchar" MaxLength="20" />
+    <Property Name="LE_VA_R" Type="varchar" MaxLength="20" />
+    <Property Name="LE_VA_CL" Type="varchar" MaxLength="20" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="DateUpdated" Type="datetime" />
+    <Property Name="BookOrderNo" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Customers">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="1000" Nullable="false" />
+    <Property Name="ContactInfo" Type="varchar(max)" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="DateCreated" Type="datetime" Nullable="false" />
+    <Property Name="DateUpdated" Type="datetime" />
+    <Property Name="CreatedBy" Type="bigint" />
+  </EntityType>
+  <Association Name="FK_CustomerOrders_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+    <End Role="CustomerOrders" Type="Self.CustomerOrders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="CustomerOrders">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="SearchOrders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustomerName" Type="varchar(max)" Mode="In" />
+    <Parameter Name="CustomerContact" Type="varchar(max)" Mode="In" />
+    <Parameter Name="OrderDate" Type="varchar" Mode="In" />
+    <Parameter Name="DeliveryDate" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="OpticalPointOfSaleModelStoreContainer">
+    <EntitySet Name="AppSettings" EntityType="Self.AppSettings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CustomerOrders" EntityType="Self.CustomerOrders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CustomerOrders_Customers" Association="Self.FK_CustomerOrders_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="CustomerOrders" EntitySet="CustomerOrders" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,57 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="OpticalPointOfSale.Pages.MasterPage" %>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link href="../Content/Site.css" rel="stylesheet" />
+    <title>Madni Optical</title>
+
+</head>
+<body>
+<form id="form1" runat="server">
+ <table align="left" cellpadding="0" cellspacing="0" style="width: 100%; float: left">       
+        <tr>
+            <td style="width: 10%"></td>
+            <td style="width: 80%; padding:0px">
+                <asp:ContentPlaceHolder ID="cpHeader" runat="server">
+                    <table align="left" cellpadding="0" cellspacing="0" style="width: 100%; float: left">
+                        <tr>
+                            <td class="zero" style="padding:5px 0px 5px 0px">
+                                <asp:Label ID="lblShopName" runat="server" Font-Bold="true" Text="Madni Optical" ForeColor="#228B22" Font-Size="18px"></asp:Label>
+                            </td> 
+                            <td style="text-align:right; padding:5px 0px 5px 0px">
+                                <asp:LinkButton ID="lnkCreateOrder" runat="server" PostBackUrl="~\Pages\AddEditOrder.aspx" BackColor=" Green" CausesValidation="False" OnClick="lnkCreateOrder_Click">Create order </asp:LinkButton>
+                                <asp:LinkButton ID="lnkOrdersList" runat="server" PostBackUrl="~\Pages\OrdersList.aspx"  BackColor=" Green" CausesValidation="False">Orders list</asp:LinkButton>
+                                <asp:LinkButton ID="btnLogOut" runat="server" CausesValidation="False" BackColor=" Green" OnClick="btnLogOut_Click">Log Out</asp:LinkButton>
+                            </td>
+                        </tr>
+                        
+                    </table>
+                </asp:ContentPlaceHolder>
+            </td>
+            <td style="width: 10%"></td>
+        </tr>
+        <tr>
+            <td style="width: 10%">&nbsp;</td>
+            <td style="border: thin solid #808080; width: 80%; padding:15px">
+                <asp:ContentPlaceHolder ID="cpCenter" runat="server"></asp:ContentPlaceHolder>
+            </td>
+            <td style="width: 10%">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 10%"></td>
+            <td style="width: 80%"></td>
+            <td style="width: 10%"></td>
+        </tr>
+        </table>
+
+        <div>
+        
+    </div>
+           <div>
+        <asp:ContentPlaceHolder ID="cpFooter" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

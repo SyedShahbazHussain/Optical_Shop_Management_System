@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OpticalPointOfSaleModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AppSetting">
+    <Key>
+      <PropertyRef Name="AppSettingsID" />
+    </Key>
+    <Property Name="AppSettingsID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SettingKey" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SettingValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="OpticalPointOfSaleEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AppSettings" EntityType="Self.AppSetting" />
+    <EntitySet Name="Customers" EntityType="OpticalPointOfSaleModel.Customer" />
+    <FunctionImport Name="SearchOrders" ReturnType="Collection(OpticalPointOfSaleModel.SearchOrders_Result)">
+      <Parameter Name="CustomerName" Mode="In" Type="String" />
+      <Parameter Name="CustomerContact" Mode="In" Type="String" />
+      <Parameter Name="OrderDate" Mode="In" Type="String" />
+      <Parameter Name="DeliveryDate" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="CustomerOrders" EntityType="OpticalPointOfSaleModel.CustomerOrder" />
+    <AssociationSet Name="FK_CustomerOrders_Customers" Association="OpticalPointOfSaleModel.FK_CustomerOrders_Customers">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="CustomerOrder" EntitySet="CustomerOrders" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="ContactInfo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <NavigationProperty Name="CustomerOrders" Relationship="OpticalPointOfSaleModel.FK_CustomerOrders_Customers" FromRole="Customer" ToRole="CustomerOrder" />
+  </EntityType>
+  <ComplexType Name="SearchOrders_Result">
+    <Property Type="Int64" Name="OrderId" Nullable="false" />
+    <Property Type="Int64" Name="CustomerID" Nullable="false" />
+    <Property Type="String" Name="Particularls" Nullable="true" />
+    <Property Type="String" Name="OrderDate" Nullable="true" MaxLength="12" />
+    <Property Type="String" Name="DeliveryDate" Nullable="true" MaxLength="12" />
+    <Property Type="String" Name="F_L_C" Nullable="true" MaxLength="1504" />
+    <Property Type="Int32" Name="Total" Nullable="true" />
+    <Property Type="Int32" Name="Advance" Nullable="true" />
+    <Property Type="Int32" Name="Balance" Nullable="true" />
+    <Property Type="String" Name="CustomerName" Nullable="false" MaxLength="1000" />
+    <Property Type="String" Name="CustomerContact" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="CustomerOrder">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerID" Type="Int64" Nullable="false" />
+    <Property Name="Particularls" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="OrderDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DeliveryDate" Type="DateTime" Precision="3" />
+    <Property Name="Frame" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Lenses" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ContactLense" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Total" Type="Int32" />
+    <Property Name="Advance" Type="Int32" />
+    <Property Name="Balance" Type="Int32" />
+    <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="RE_SPH_D" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RE_SPH_R" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RE_SPH_CL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RE_CYL_D" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RE_CYL_R" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RE_CYL_CL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RE_AXIS_D" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RE_AXIS_R" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RE_AXIS_CL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RE_VA_D" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RE_VA_R" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RE_VA_CL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LE_SPH_D" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LE_SPH_R" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LE_SPH_CL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LE_CYL_D" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LE_CYL_R" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LE_CYL_CL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LE_AXIS_D" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LE_AXIS_R" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LE_AXIS_CL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LE_VA_D" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LE_VA_R" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="LE_VA_CL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DateCreated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+    <Property Name="BookOrderNo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Customer" Relationship="OpticalPointOfSaleModel.FK_CustomerOrders_Customers" FromRole="CustomerOrder" ToRole="Customer" />
+  </EntityType>
+  <Association Name="FK_CustomerOrders_Customers">
+    <End Type="OpticalPointOfSaleModel.Customer" Role="Customer" Multiplicity="1" />
+    <End Type="OpticalPointOfSaleModel.CustomerOrder" Role="CustomerOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="CustomerID" />
+      </Principal>
+      <Dependent Role="CustomerOrder">
+        <PropertyRef Name="CustomerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

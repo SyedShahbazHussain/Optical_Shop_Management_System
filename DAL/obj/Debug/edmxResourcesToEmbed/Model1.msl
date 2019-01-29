@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OpticalPointOfSaleModelStoreContainer" CdmEntityContainer="OpticalPointOfSaleEntities">
+    <EntitySetMapping Name="AppSettings">
+      <EntityTypeMapping TypeName="OpticalPointOfSaleModel.AppSetting">
+        <MappingFragment StoreEntitySet="AppSettings">
+          <ScalarProperty Name="AppSettingsID" ColumnName="AppSettingsID" />
+          <ScalarProperty Name="SettingKey" ColumnName="SettingKey" />
+          <ScalarProperty Name="SettingValue" ColumnName="SettingValue" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="OpticalPointOfSaleModel.Customer">
+        <MappingFragment StoreEntitySet="Customers">
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ContactInfo" ColumnName="ContactInfo" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SearchOrders" FunctionName="OpticalPointOfSaleModel.Store.SearchOrders">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="OpticalPointOfSaleModel.SearchOrders_Result">
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="Particularls" ColumnName="Particularls" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+          <ScalarProperty Name="F_L_C" ColumnName="F/L/C" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="Advance" ColumnName="Advance" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustomerContact" ColumnName="CustomerContact" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="CustomerOrders">
+      <EntityTypeMapping TypeName="OpticalPointOfSaleModel.CustomerOrder">
+        <MappingFragment StoreEntitySet="CustomerOrders">
+          <ScalarProperty Name="BookOrderNo" ColumnName="BookOrderNo" />
+          <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+          <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+          <ScalarProperty Name="LE_VA_CL" ColumnName="LE_VA_CL" />
+          <ScalarProperty Name="LE_VA_R" ColumnName="LE_VA_R" />
+          <ScalarProperty Name="LE_VA_D" ColumnName="LE_VA_D" />
+          <ScalarProperty Name="LE_AXIS_CL" ColumnName="LE_AXIS_CL" />
+          <ScalarProperty Name="LE_AXIS_R" ColumnName="LE_AXIS_R" />
+          <ScalarProperty Name="LE_AXIS_D" ColumnName="LE_AXIS_D" />
+          <ScalarProperty Name="LE_CYL_CL" ColumnName="LE_CYL_CL" />
+          <ScalarProperty Name="LE_CYL_R" ColumnName="LE_CYL_R" />
+          <ScalarProperty Name="LE_CYL_D" ColumnName="LE_CYL_D" />
+          <ScalarProperty Name="LE_SPH_CL" ColumnName="LE_SPH_CL" />
+          <ScalarProperty Name="LE_SPH_R" ColumnName="LE_SPH_R" />
+          <ScalarProperty Name="LE_SPH_D" ColumnName="LE_SPH_D" />
+          <ScalarProperty Name="RE_VA_CL" ColumnName="RE_VA_CL" />
+          <ScalarProperty Name="RE_VA_R" ColumnName="RE_VA_R" />
+          <ScalarProperty Name="RE_VA_D" ColumnName="RE_VA_D" />
+          <ScalarProperty Name="RE_AXIS_CL" ColumnName="RE_AXIS_CL" />
+          <ScalarProperty Name="RE_AXIS_R" ColumnName="RE_AXIS_R" />
+          <ScalarProperty Name="RE_AXIS_D" ColumnName="RE_AXIS_D" />
+          <ScalarProperty Name="RE_CYL_CL" ColumnName="RE_CYL_CL" />
+          <ScalarProperty Name="RE_CYL_R" ColumnName="RE_CYL_R" />
+          <ScalarProperty Name="RE_CYL_D" ColumnName="RE_CYL_D" />
+          <ScalarProperty Name="RE_SPH_CL" ColumnName="RE_SPH_CL" />
+          <ScalarProperty Name="RE_SPH_R" ColumnName="RE_SPH_R" />
+          <ScalarProperty Name="RE_SPH_D" ColumnName="RE_SPH_D" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+          <ScalarProperty Name="Balance" ColumnName="Balance" />
+          <ScalarProperty Name="Advance" ColumnName="Advance" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="ContactLense" ColumnName="ContactLense" />
+          <ScalarProperty Name="Lenses" ColumnName="Lenses" />
+          <ScalarProperty Name="Frame" ColumnName="Frame" />
+          <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="Particularls" ColumnName="Particularls" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
